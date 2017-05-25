@@ -1,8 +1,8 @@
-<%=@player_one_name%> vs. <%=@player_two_name%>
+<%=$game.player_one.name%> vs. <%=$game.player_two.name%>
 
-<%=@player_one_name%> HP: 100
+<%=$game.player_one.name%> HP: <%=$game.player_one.hit_points%>
 
-<%=@player_two_name%> HP: 100
+<%=$game.player_two.name%> HP: <%=$game.player_two.hit_points%>
 
 <form action="/attack" method="GET">
   <input type="submit" value="ATTACK!">

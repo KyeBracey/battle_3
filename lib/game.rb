@@ -1,12 +1,12 @@
-require 'player'
+require_relative 'player'
 
 class Game
   DEFAULT_DAMAGE = 10
-  attr_reader :player_1, :player_2
+  attr_reader :player_one, :player_two
 
-  def initialize(player_1 = Player.new, player_2 = Player.new)
-    @player_1 = player_1
-    @player_2 = player_2
+  def initialize(player_one = Player.new, player_two = Player.new)
+    @player_one = player_one
+    @player_two = player_two
   end
 
   def attack(target)

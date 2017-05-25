@@ -2,13 +2,13 @@ require 'game'
 
 
 describe Game do
-  player_1 = Player.new("Kavita")
-  player_2 = Player.new("Simon")
-  subject(:game) {described_class.new(player_1, player_2)}
+  player_one = Player.new("Kavita")
+  player_two = Player.new("Simon")
+  subject(:game) {described_class.new(player_one, player_two)}
 
 
   it 'players can attack another player' do
-    expect{ game.attack(player_2)}.to change { game.player_2.hit_points }.by(-10)
+    expect{ game.attack(player_two)}.to change { game.player_two.hit_points }.by(-10)
   end
 
 
