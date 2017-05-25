@@ -1,7 +1,15 @@
 require 'player'
 
 describe Player do
-  # it "responds to player_name method" do
-  #   expect(subject).to respond_to :player_name
-  # end
+  subject(:player) {described_class.new('Simon')}
+
+  it 'players have hit points' do
+    expect(player.hit_points).to eq 100
+  end
+
+  it 'players can lose hit points when attacked' do
+    player.damage(10)
+    expect(player.hit_points).to eq 90
+  end
+
 end
