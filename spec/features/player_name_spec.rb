@@ -14,3 +14,11 @@ feature "Players can see hit points", :type => :feature do
     expect(page).to have_content 'Simon HP: 100'
   end
 end
+
+  feature "Player 1 can attack Player 2", :type => :feature do
+    scenario "Can reduce Player 2's hit points" do
+      sign_in_and_play()
+      click_button('ATTACK!')
+      expect(page).to have_content 'You attacked Simon!!'
+    end
+  end
