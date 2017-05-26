@@ -3,7 +3,8 @@
 <%=$game.player_one.name%> HP: <%=$game.player_one.hit_points%>
 
 <%=$game.player_two.name%> HP: <%=$game.player_two.hit_points%>
-
+<br>
+<%=$game.attacker.name%>: your turn!
 <form action="/attack" method="GET">
   <input type="submit" value="ATTACK!">
 </form>

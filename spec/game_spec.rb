@@ -8,17 +8,13 @@ describe Game do
 
 
   it 'players can attack another player' do
-    expect{ game.attack(player_two)}.to change { game.player_two.hit_points }.by(-10)
+    expect{ game.attack }.to change { game.defender.hit_points }.by(-10)
   end
 
-  it 'defaults current turn to player one at the beginning' do
-    expect(game.current_turn).to eq(player_one)
+  it 'changes the current attacker' do
+    expect(game.attacker).to eq(player_two)
+    game.change_current_turn
+    expect(game.attacker).to eq(player_one)
   end
-
-  it 'switches turn after an attack' do
-    game.attack(player_two)
-    expect(game.current_turn).to eq(player_two)
-  end
-
 
 end

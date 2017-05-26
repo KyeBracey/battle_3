@@ -1,2 +1,5 @@
-You attacked <%= $game.player_two.name %>!!
-<%= $game.player_two.name %> HP: <%= $game.player_two.hit_points %>
+You attacked <%= $game.defender.name %>!!
+<%= $game.defender.name %> HP: <%= $game.defender.hit_points %>
+<form action='/play' method='get'>
+  <input type='submit' value='END TURN!'>
+</form>

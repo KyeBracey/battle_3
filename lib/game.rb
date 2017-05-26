@@ -4,13 +4,26 @@ class Game
   DEFAULT_DAMAGE = 10
   attr_reader :player_one, :player_two
 
-  def initialize(player_one = Player.new, player_two = Player.new)
+  def initialize(player_one, player_two)
     @player_one = player_one
     @player_two = player_two
+    @players = [@player_one, @player_two]
   end
 
-  def attack(target)
-    target.receive_damage(DEFAULT_DAMAGE)
+  def attack
+    @players[0].receive_damage(DEFAULT_DAMAGE)
+  end
+
+  def change_current_turn
+    @players.rotate!
+  end
+
+  def attacker
+    @players[1]
+  end
+
+  def defender
+    @players[0]
   end
 
 end
