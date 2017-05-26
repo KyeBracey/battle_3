@@ -10,6 +10,14 @@ class Game
     @players = [@player_one, @player_two]
   end
 
+  def self.create(player_one, player_two)
+    @game = self.new(player_one, player_two)
+  end
+
+  def self.instance
+    @game
+  end
+
   def attack
     @players[0].receive_damage(DEFAULT_DAMAGE)
   end

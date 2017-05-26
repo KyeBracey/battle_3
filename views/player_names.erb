@@ -1,10 +1,10 @@
-<%=$game.player_one.name%> vs. <%=$game.player_two.name%>
+<%=@game.player_one.name%> vs. <%=@game.player_two.name%>
 
-<%=$game.player_one.name%> HP: <%=$game.player_one.hit_points%>
+<%=@game.player_one.name%> HP: <%=@game.player_one.hit_points%>
 
-<%=$game.player_two.name%> HP: <%=$game.player_two.hit_points%>
+<%=@game.player_two.name%> HP: <%=@game.player_two.hit_points%>
 <br>
-<%=$game.attacker.name%>: your turn!
+<%=@game.attacker.name%>: your turn!
 <form action="/update_status" method="POST">
   <input type="submit" value="ATTACK!">
 </form>
