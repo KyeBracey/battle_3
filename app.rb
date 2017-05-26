@@ -17,7 +17,7 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    redirect '/victory' if $game.game_over?
+    redirect '/result' if $game.game_over?
     $game.change_current_turn
     erb :player_names
   end
@@ -31,8 +31,8 @@ class Battle < Sinatra::Base
     erb(:attack)
   end
 
-  get '/victory' do
-    erb :victory
+  get '/result' do
+    erb :result
   end
 
   run! if app_file == $0
