@@ -17,13 +17,22 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
+    redirect '/victory' if $game.defender.hit_points <= 0
     $game.change_current_turn
     erb :player_names
   end
 
-  get '/attack' do
+  post '/update_status' do
     $game.attack
+    redirect '/attack'
+  end
+
+  get '/attack' do
     erb(:attack)
+  end
+
+  get '/victory' do
+    erb :victory
   end
 
   run! if app_file == $0
