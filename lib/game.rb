@@ -26,4 +26,14 @@ class Game
     @players[0]
   end
 
+  def game_over?
+    losing_players.any?
+  end
+
+  private
+
+  def losing_players
+    @players.select{ |player| player.hit_points <= 0 }
+  end
+
 end

@@ -17,7 +17,7 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    redirect '/victory' if $game.defender.hit_points <= 0
+    redirect '/victory' if $game.game_over?
     $game.change_current_turn
     erb :player_names
   end
