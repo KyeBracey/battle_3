@@ -23,7 +23,7 @@ class Battle < Sinatra::Base
   get '/play' do
     redirect '/result' if @game.game_over?
     @game.change_current_turn
-    erb :player_names
+    erb :play
   end
 
   post '/update_status' do
