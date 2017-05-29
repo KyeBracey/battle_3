@@ -8,10 +8,6 @@ class Player
     @hit_points = hit_points
   end
 
-  def attack(target)
-    target.receive_damage(DEFAULT_DAMAGE)
-  end
-
   def receive_damage(amount = DEFAULT_DAMAGE)
     @hit_points -= amount
   end
