@@ -24,4 +24,11 @@ describe Game do
     expect(game_with_losing_player.game_over?).to eq true
   end
 
+  describe '#attack' do
+    it 'Deals between 2 and 9 damage' do
+      expect(player_one).to receive(:receive_damage).with(5)
+      game.attack
+    end
+  end
+
 end
