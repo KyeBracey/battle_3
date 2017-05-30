@@ -24,9 +24,13 @@ end
   end
 
   feature "Player 2 loses hit points when attacked", :type => :feature do
-    scenario "Attack Player 2 for 10 damage" do
+    before do
+      srand(1337)
+    end
+
+    scenario "Attack Player 2 for 2-9 damage" do
       sign_in_and_play()
       click_button('ATTACK!')
-      expect(page).to have_content 'Simon HP: 90'
+      expect(page).to have_content 'Simon HP: 91'
     end
   end
