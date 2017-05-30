@@ -1,8 +1,11 @@
 class Computer
-  attr_reader :name
+  DEFAULT_HIT_POINTS = 100
 
-  def initialize(name = 'Computer')
+  attr_reader :name, :hit_points
+
+  def initialize(name = 'Computer', hit_points = DEFAULT_HIT_POINTS)
     @name = name
+    @hit_points = hit_points
   end
 
 end
