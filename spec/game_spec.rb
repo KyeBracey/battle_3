@@ -8,10 +8,6 @@ describe Game do
   subject(:game) {described_class.new(player_one, player_two)}
   subject(:game_with_losing_player) {described_class.new(player_one, losing_player)}
 
-  before do
-    srand(8006)
-  end
-
   it 'players can attack another player' do
     expect( game.defender ).to receive (:receive_damage)
     game.attack
@@ -28,9 +24,14 @@ describe Game do
   end
 
   describe '#attack' do
-    it 'Deals between 2 and 9 damage' do
+
+    before do
+        srand(1337)
+    end
+
+    it 'Deals between 3 and 9 damage' do
+      expect(player_one).to receive(:receive_damage).with(7)
       expect(player_one).to receive(:receive_damage).with(3)
-      expect(player_one).to receive(:receive_damage).with(4)
       expect(player_one).to receive(:receive_damage).with(8)
       game.attack
       game.attack

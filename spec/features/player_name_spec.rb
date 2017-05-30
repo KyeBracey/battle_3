@@ -31,6 +31,6 @@ end
     scenario "Attack Player 2 for 2-9 damage" do
       sign_in_and_play()
       click_button('ATTACK!')
-      expect(page).to have_content 'Simon HP: 91'
+      expect(page).to have_content 'Simon HP: 92'
     end
   end

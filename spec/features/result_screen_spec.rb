@@ -1,7 +1,7 @@
 feature 'Result Screen' do
 
   before(:each) do
-    srand(1337)
+    srand(1339)
   end
 
   scenario 'player 1 wins and sees a victory screen' do
