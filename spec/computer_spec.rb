@@ -23,4 +23,14 @@ describe Computer do
       expect(named_computer.hit_points).to eq 80
     end
   end
+
+  describe '#receive_damage' do
+    it 'Computer loses 10 hit points when no argument is passed in' do
+      expect{ computer.receive_damage }.to change { computer.hit_points }.by(-10)
+    end
+
+    it 'Computer can lose hit points based on the argument passed in' do
+      expect{ computer.receive_damage(7) }.to change { computer.hit_points }.by(-7)
+    end
+  end
 end
