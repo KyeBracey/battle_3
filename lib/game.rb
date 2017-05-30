@@ -19,7 +19,7 @@ class Game
   end
 
   def attack
-    @players[0].receive_damage(DEFAULT_DAMAGE)
+    @players[0].receive_damage(rand(2..9))
   end
 
   def change_current_turn
