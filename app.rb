@@ -37,6 +37,10 @@ class Battle < Sinatra::Base
     redirect '/attack_1p'
   end
 
+  get '/attack_1p' do
+    erb(:attack_1p)
+  end
+
   get '/computer_turn' do
     redirect '/result' if @game.game_over?
     @game.change_current_turn
@@ -59,10 +63,6 @@ class Battle < Sinatra::Base
     redirect '/result' if @game.game_over?
     @game.change_current_turn
     erb :play
-  end
-
-  get '/attack_1p' do
-    erb(:attack_1p)
   end
 
   post '/update_status' do
