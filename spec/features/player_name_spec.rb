@@ -19,7 +19,7 @@ end
     scenario "Get confirmation of attack" do
       sign_in_and_play()
       click_button('ATTACK!')
-      expect(page).to have_content 'You attacked Simon!!'
+      expect(page).to have_content 'Kye attacked Simon!!'
     end
   end
 

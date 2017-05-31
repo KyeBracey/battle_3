@@ -6,6 +6,6 @@ feature 'Switching turns' do
     click_button('ATTACK!')
     click_button('END TURN!')
     click_button('ATTACK!')
-    expect(page).to have_content('You attacked Kye!')
+    expect(page).to have_content('Simon attacked Kye!')
   end
 end

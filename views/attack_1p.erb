@@ -1,5 +1,5 @@
 <%= @game.attacker.name %> attacked <%= @game.defender.name %>!!
 <%= @game.defender.name %> HP: <%= @game.defender.hit_points %>
-<form action='/play' method='get'>
+<form action='/computer_turn' method='get'>
   <input type='submit' value='END TURN!'>
 </form>

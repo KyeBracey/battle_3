@@ -1,6 +1,7 @@
 require './lib/player'
 require 'sinatra/base'
 require './lib/game'
+require './lib/computer'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -11,6 +12,40 @@ class Battle < Sinatra::Base
 
   get '/' do
     erb(:index)
+  end
+
+  get '/name_entry_1_player' do
+    erb(:name_entry_1_player)
+  end
+
+  post '/names_1p' do
+    player_one = Player.new(params[:player_one_name])
+    player_two = Computer.new
+    @game = Game.create(player_one, player_two)
+    p @game
+    redirect '/play_1p'
+  end
+
+  get '/play_1p' do
+    redirect '/result' if @game.game_over?
+    @game.change_current_turn
+    erb :play_1p
+  end
+
+  post '/update_status_1p' do
+    @game.attack
+    redirect '/attack_1p'
+  end
+
+  get '/computer_turn' do
+    redirect '/result' if @game.game_over?
+    @game.change_current_turn
+    @game.attack
+    erb(:computer_attack)
+  end
+
+  get '/name_entry_2_players' do
+    erb(:name_entry_2_players)
   end
 
   post '/names' do
@@ -24,6 +59,10 @@ class Battle < Sinatra::Base
     redirect '/result' if @game.game_over?
     @game.change_current_turn
     erb :play
+  end
+
+  get '/attack_1p' do
+    erb(:attack_1p)
   end
 
   post '/update_status' do
